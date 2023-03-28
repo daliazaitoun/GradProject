@@ -1,0 +1,119 @@
+import 'dart:developer';
+
+import 'package:flutter/material.dart';
+import 'package:project1/Doctor/signdoc.dart';
+import 'package:project1/Patient/Sign.dart';
+import 'package:project1/Patient/log.dart';
+
+import 'Doctor/logdoc.dart';
+
+
+
+class begin extends StatefulWidget {
+  const begin({Key? key}) : super(key: key);
+
+  @override
+  State<begin> createState() => _beginState();
+}
+
+class _beginState extends State<begin> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+        body: Container(
+          alignment: Alignment.center,
+          padding: EdgeInsets.all(32),
+          decoration: BoxDecoration(
+            image:DecorationImage(
+              image:AssetImage(
+                  'assets/images/welcome page.png'
+              ),
+            ) ,
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Column(
+                  children: [
+                    SizedBox(height: 40,),
+                    Text(
+                     'Welcome to our Application',style: TextStyle(color: Colors.white,fontSize: 25),
+                    ),
+                    SizedBox(height: 60,),
+
+                    Container(
+                      child: Column(
+                        children: [
+                          Container(
+                            width:150,
+                            height: 150,
+                            child: FloatingActionButton.large(
+                              backgroundColor: Colors.white,
+                              onPressed: () {},
+                              child:Image.asset('assets/images/patient.jpg',width: 50,height: 50,),
+                            ),
+                          ),
+                          SizedBox(height: 20,),
+                          Text('Patient',style: TextStyle(color: Colors.white,fontSize: 25),)
+                        ],
+                      ),
+                    ),
+                          SizedBox(height: 40,),
+                    Container(
+                      child: Column(
+                        children: [
+                          Container(
+                            width:150,
+                            height: 150,
+                            child: FloatingActionButton.large(
+                              backgroundColor: Colors.white,
+                              onPressed: () {},
+                              child:Image.asset('assets/images/Doctor.jpg',width: 50,height: 50,),
+                            ),
+                          ),
+                          SizedBox(height: 20,),
+                          Text('Doctor',style: TextStyle(color: Colors.white,fontSize: 25),)
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 40,),
+                    Container(
+                      width: 120,
+                      color: Color(0xFF2C698D),
+                      child: MaterialButton(
+                        onPressed: (() {  setState(() {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)
+                          => signdo())
+                          );// navigator byn2l l page tanya
+
+                        });}),
+                        child: Text('Sign Up' ,style: TextStyle(color: Colors.white,),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20,),
+                    Container(
+                      width: 120,
+                      color: Color(0xFF2C698D),
+                      child: MaterialButton(
+                        onPressed: (() { setState(() {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)
+                          => logdo())
+                          );// navigator byn2l l page tanya
+
+                        });}),
+                        child: Text('Login' ,style: TextStyle(color: Colors.white,),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+
+    );
+  }
+}
